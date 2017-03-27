@@ -37,7 +37,7 @@
 <body>
 
    
-    <div class="hero">
+    <div class="hero" id="top-image">
 
         <nav class="navbar navbar-inverse topbar" >
           <div class="container-fluid">
@@ -266,6 +266,23 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+    
+    
+    <script>
+
+        $(document).ready(function() {
+        var movementStrength = 8;
+        var height = movementStrength / $(window).height();
+        var width = movementStrength / $(window).width();
+        $("#top-image").mousemove(function(e){
+                  var pageX = e.pageX - ($(window).width() / 2);
+                  var pageY = e.pageY - ($(window).height() / 2);
+                  var newvalueX = width * pageX * -1 - 25;
+                  var newvalueY = height * pageY * -1 - 50;
+                  $('#top-image').css("background-position", newvalueX+"px     "+(newvalueY+30)+"px");
+        });
+        });
+    </script>
 
 </body>
 
